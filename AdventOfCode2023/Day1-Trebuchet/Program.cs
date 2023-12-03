@@ -28,7 +28,8 @@ Console.WriteLine(calibrationValues.Sum());
 
 Console.WriteLine("Calibration value version 2:");
 Console.WriteLine(calibrationV2Values.Sum());
-Console.ReadKey();
+
+return;
 
 // Get calibration value from string entry
 // If only last is found, then return calibration of twice the last
