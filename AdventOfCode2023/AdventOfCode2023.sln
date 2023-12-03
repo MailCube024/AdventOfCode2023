@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Items", "Items", "{09C36D3D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day2-Cube", "Day2-Cube\Day2-Cube.csproj", "{398E666E-344D-4B0A-9586-DD1FABC84BD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day3-GearRatios", "Day3-GearRatios\Day3-GearRatios.csproj", "{67DF87DF-E5FD-4898-9EFE-1B8DDE9897FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{398E666E-344D-4B0A-9586-DD1FABC84BD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{398E666E-344D-4B0A-9586-DD1FABC84BD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{398E666E-344D-4B0A-9586-DD1FABC84BD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67DF87DF-E5FD-4898-9EFE-1B8DDE9897FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67DF87DF-E5FD-4898-9EFE-1B8DDE9897FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67DF87DF-E5FD-4898-9EFE-1B8DDE9897FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67DF87DF-E5FD-4898-9EFE-1B8DDE9897FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
