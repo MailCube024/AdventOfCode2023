@@ -35,8 +35,7 @@ public partial class EnginePartFinder
             yield return match.Groups["PartNumber"].Value;
     }
 
-    private static (int Index, int Length) GetPartPosition(string entry, string partNumber) =>
-        (entry.IndexOf(partNumber), partNumber.Length);
+    private static (int Index, int Length) GetPartPosition(string entry, string partNumber) => (entry.IndexOf(partNumber), partNumber.Length);
 
     [GeneratedRegex(@"(?<PartNumber>\d+)")]
     private static partial Regex FindPartNumberRegex();
