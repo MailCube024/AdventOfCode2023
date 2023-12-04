@@ -4,7 +4,7 @@ using Day3_GearRatios;
 
 var entries = File.ReadLines(args[0]);
 
-var engine = new EngineMap(entries.ToList());
+var engine = new EnginePartFinder(entries.ToList());
 var parts = engine.FindPossibleParts().ToList();
 
 var partsNumberSum = 0;

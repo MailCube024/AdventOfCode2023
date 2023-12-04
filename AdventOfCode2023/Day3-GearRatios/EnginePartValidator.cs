@@ -1,12 +1,12 @@
 ﻿namespace Day3_GearRatios;
 
-public class EngineMapLookup
+public class EnginePartValidator
 {
     private readonly Coordinates Minimum = new(0, 0);
     private readonly Coordinates Maximum;
     private readonly char[,] m_engineMap;
 
-    public EngineMapLookup(IReadOnlyList<string> lines)
+    public EnginePartValidator(IReadOnlyList<string> lines)
     {
         Maximum = new Coordinates(lines[0].Length, lines.Count);
 
