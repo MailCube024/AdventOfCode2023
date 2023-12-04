@@ -8,7 +8,7 @@ var finder = new EnginePartFinder(entries.ToList());
 var parts = finder.FindPossibleParts();
 
 var validator = new EnginePartValidator(entries.ToList());
-var validParts = validator.FilterValidParts(parts);
+var validParts = validator.FilterValidParts(parts).ToList();
 
 var partsNumberSum = validParts.Sum(p => p.PartValue);
 

@@ -12,9 +12,9 @@ public class EnginePartValidator
 
     public EnginePartValidator(IReadOnlyList<string> lines)
     {
-        Maximum = new Coordinates(lines[0].Length, lines.Count);
+        Maximum = new Coordinates(lines[0].Length - 1, lines.Count - 1);
 
-        m_engineMap = new char[Maximum.X, Maximum.Y];
+        m_engineMap = new char[Maximum.X + 1, Maximum.Y + 1];
         InitMap(m_engineMap, lines.ToArray());
     }
 
@@ -27,24 +27,35 @@ public class EnginePartValidator
 
     public IEnumerable<Part> FilterValidParts(IEnumerable<Part> parts)
     {
+        var validParts = new List<Part>();
+
         foreach (var part in parts)
         {
             var (bottom, top) = GetBoundaries(part.Position, part.PartLength);
 
-            for (var i = bottom.X; i < top.X; i++)
-                for (var j = bottom.Y; j < top.Y; i++)
-                    if (!InvalidChars.Contains(m_engineMap[i, j]))
-                        yield return part;
+            for (var x = bottom.X; x <= top.X; x++)
+                for (var y = bottom.Y; y <= top.Y; y++)
+                    // If any characters are not invalid, then we have a valid part and we should return it.
+                    if (!InvalidChars.Contains(m_engineMap[y, x]))
+                    {
+                        validParts.Add(part);
+                        goto next;
+                    }
+
+            next: ;
         }
+
+        Console.WriteLine(validParts.Aggregate("", (s, part) => s + part.PartNumber + Environment.NewLine));
+        return validParts;
     }
 
     private (Coordinates BottomLeft, Coordinates TopRight) GetBoundaries(Coordinates start, int length)
     {
-        var botX = Math.Min(Minimum.X, start.X - 1);
-        var botY = Math.Min(Minimum.Y, start.Y - 1);
+        var botX = Math.Max(Minimum.X, start.X - 1);
+        var botY = Math.Max(Minimum.Y, start.Y - 1);
 
-        var topX = Math.Max(Maximum.X, start.X + length);
-        var topY = Math.Max(Maximum.Y, start.Y + 1);
+        var topX = Math.Min(Maximum.X, start.X + length);
+        var topY = Math.Min(Maximum.Y, start.Y + 1);
 
         return (new Coordinates(botX, botY), new Coordinates(topX, topY));
     }
