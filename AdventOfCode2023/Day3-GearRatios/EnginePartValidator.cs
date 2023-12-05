@@ -8,7 +8,7 @@ public class EnginePartValidator
     private readonly Coordinates Maximum;
     private readonly char[,] m_engineMap;
 
-    private const string InvalidChars = ".1234567890";
+    private const string KnownCharacters = ".1234567890";
 
     public EnginePartValidator(IReadOnlyList<string> lines)
     {
@@ -36,7 +36,7 @@ public class EnginePartValidator
             for (var x = bottom.X; x <= top.X; x++)
                 for (var y = bottom.Y; y <= top.Y; y++)
                     // If any characters are not invalid, then we have a valid part and we should return it.
-                    if (!InvalidChars.Contains(m_engineMap[y, x]))
+                    if (!KnownCharacters.Contains(m_engineMap[y, x]))
                     {
                         validParts.Add(part);
                         goto next;

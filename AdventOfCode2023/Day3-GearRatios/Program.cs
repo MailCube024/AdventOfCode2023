@@ -2,13 +2,13 @@
 
 using Day3_GearRatios;
 
-var entries = File.ReadLines(args[0]);
+var entries = File.ReadLines(args[0]).ToList();
 
-var finder = new EnginePartFinder(entries.ToList());
+var finder = new EnginePartFinder(entries);
 var parts = finder.FindPossibleParts();
 
-var validator = new EnginePartValidator(entries.ToList());
-var validParts = validator.FilterValidParts(parts).ToList();
+var validator = new EnginePartValidator(entries);
+var validParts = validator.FilterValidParts(parts);
 
 var partsNumberSum = validParts.Sum(p => p.PartValue);
 
